@@ -66,7 +66,6 @@ class AddProductViewController: UIViewController {
     }
     
     func labelWarnings() {
-        // Check product name
         if let productName = productLabel.text, productName.isEmpty {
             productWarning.text = "Product name is required."
             productWarning.isHidden = false
@@ -74,7 +73,6 @@ class AddProductViewController: UIViewController {
             productWarning.isHidden = true
         }
         
-        // Check product category
         if let productCategory = categoryLabel.text, productCategory.isEmpty {
             categoryWarning.text = "Category is required."
             categoryWarning.isHidden = false
@@ -82,7 +80,6 @@ class AddProductViewController: UIViewController {
             categoryWarning.isHidden = true
         }
         
-        // Check product price
         if let priceText = priceTextField.text, let _ = Double(priceText) {
             priceWarning.isHidden = true
         } else {
@@ -90,7 +87,6 @@ class AddProductViewController: UIViewController {
             priceWarning.isHidden = false
         }
         
-        // Check product quantity
         if let quantityText = quantityTextField.text, let _ = Int(quantityText) {
             quantityWarning.isHidden = true
         } else {

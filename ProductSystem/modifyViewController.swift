@@ -8,10 +8,11 @@
 import UIKit
 
 class modifyViewController: UIViewController {
-
+    @IBOutlet var pickerView: UIPickerView!
+    var productList : [Product] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(productList)
         // Do any additional setup after loading the view.
     }
     

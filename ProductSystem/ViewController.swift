@@ -23,15 +23,6 @@ class ViewController: UIViewController {
         print("RemoveButton Pressed")
     }
     
-    @IBAction func printAll(_ sender: UIButton) {
-        if !productList.isEmpty {
-            for product in productList {
-                print(product.productName, product.productCategory, product.productPrice, product.productQuantity)
-            }
-        } else {
-            print("It is empty my good sir")
-        }
-    }
     
     @IBAction func seeAllPressed(_ sender: UIButton) {
         print("SeeAllButton Pressed")
@@ -71,6 +62,7 @@ class ViewController: UIViewController {
         }else if segue.identifier == "seeAll" {
             if let destinationVC = segue.destination as? seeAllViewController {
                 destinationVC.productList = productList
+                destinationVC.delegate = self
             }
         }
     }
@@ -81,5 +73,12 @@ extension ViewController: AddProductViewControllerDelegate {
         productList.append(product)
         saveProductList()
         print(product.productName, product.productCategory, product.productPrice, product.productQuantity)
+    }
+}
+extension ViewController: seeAllViewControllerDelegate {
+    func seeAllViewController(_ controller: seeAllViewController, didUpdateProductList productList: [Product]) {
+        self.productList = productList
+        saveProductList()
+        print("Product list updated from SeeAllViewController.")
     }
 }

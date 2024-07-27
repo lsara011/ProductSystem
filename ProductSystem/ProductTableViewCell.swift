@@ -8,7 +8,10 @@
 import UIKit
 
 class ProductTableViewCell: UITableViewCell {
-
+        @IBOutlet weak var nameLabel: UILabel!
+        @IBOutlet weak var categoryLabel: UILabel!
+        @IBOutlet weak var priceLabel: UILabel!
+        @IBOutlet weak var quantityLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,5 +22,10 @@ class ProductTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    func configure(with product: Product) {
+            nameLabel.text = product.productName
+            categoryLabel.text = product.productCategory
+            priceLabel.text = "Price: $\(product.productPrice)"
+            quantityLabel.text = "Quantity: \(product.productQuantity)"
+        }
 }

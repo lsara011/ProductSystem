@@ -24,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j2O-Jh-m5W">
-                                <rect key="frame" x="0.0" y="191" width="393" height="181"/>
+                                <rect key="frame" x="0.0" y="336" width="393" height="181"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
@@ -32,6 +32,9 @@
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Modifying Product" id="3OL-ZP-DSB"/>
+                    <connections>
+                        <outlet property="pickerView" destination="j2O-Jh-m5W" id="MuM-Uf-hP7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9b-8C-uOL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,27 +93,16 @@
                                             <segue destination="v8e-xN-PBB" kind="show" identifier="seeAll" id="i2D-pU-g9N"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGE-G9-eKk">
-                                        <rect key="frame" x="20" y="423" width="353" height="35"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="FOR DEVELOPER USE"/>
-                                        <connections>
-                                            <action selector="printAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wlM-9Z-prT"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="mQ9-K7-XtK" firstAttribute="centerX" secondItem="aAe-Wg-YA7" secondAttribute="centerX" id="2ga-O3-Bpo"/>
                                     <constraint firstItem="mQ9-K7-XtK" firstAttribute="top" secondItem="aAe-Wg-YA7" secondAttribute="bottom" constant="30" id="4qU-0t-UX0"/>
                                     <constraint firstItem="8zY-FL-pHY" firstAttribute="leading" secondItem="rfs-Sb-GHF" secondAttribute="leading" constant="40" id="Dv8-sS-NtH"/>
-                                    <constraint firstItem="LGE-G9-eKk" firstAttribute="leading" secondItem="rfs-Sb-GHF" secondAttribute="leading" constant="20" id="MIH-9A-1RA"/>
-                                    <constraint firstAttribute="trailing" secondItem="LGE-G9-eKk" secondAttribute="trailing" constant="20" id="V88-gv-W9A"/>
                                     <constraint firstItem="aAe-Wg-YA7" firstAttribute="leading" secondItem="rfs-Sb-GHF" secondAttribute="leading" constant="40" id="WkQ-PM-3hW"/>
                                     <constraint firstItem="aAe-Wg-YA7" firstAttribute="top" secondItem="8zY-FL-pHY" secondAttribute="bottom" constant="30" id="ZKJ-Dm-8LZ"/>
                                     <constraint firstItem="aAe-Wg-YA7" firstAttribute="centerY" secondItem="rfs-Sb-GHF" secondAttribute="centerY" constant="-34.5" id="fXT-BF-TQ1"/>
                                     <constraint firstItem="aAe-Wg-YA7" firstAttribute="top" secondItem="8zY-FL-pHY" secondAttribute="bottom" constant="30" id="prq-Cd-bAB"/>
-                                    <constraint firstItem="LGE-G9-eKk" firstAttribute="top" secondItem="mQ9-K7-XtK" secondAttribute="bottom" constant="49" id="qYP-II-Jqv"/>
                                     <constraint firstItem="aAe-Wg-YA7" firstAttribute="centerX" secondItem="8zY-FL-pHY" secondAttribute="centerX" id="rNx-ig-JJj"/>
                                     <constraint firstItem="mQ9-K7-XtK" firstAttribute="leading" secondItem="rfs-Sb-GHF" secondAttribute="leading" constant="40" id="rWP-Ls-uzF"/>
                                     <constraint firstItem="8zY-FL-pHY" firstAttribute="centerX" secondItem="rfs-Sb-GHF" secondAttribute="centerX" id="wwc-Vy-AOm"/>
@@ -170,37 +162,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="theView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qMb-Te-RzZ">
-                                <rect key="frame" x="20" y="123" width="353" height="675"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="20" y="204" width="353" height="594"/>
+                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                <color key="separatorColor" systemColor="systemCyanColor"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="systemCyanColor"/>
+                                <color key="sectionIndexTrackingBackgroundColor" systemColor="systemCyanColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" id="2uW-fb-d4m">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" id="rNN-x8-Ky0" customClass="ProductTableViewCell" customModule="ProductSystem" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="353" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2uW-fb-d4m" id="1c4-2g-EEh">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rNN-x8-Ky0" id="14n-za-yBR">
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfw-qh-2XJ">
+                                <rect key="frame" x="20" y="103" width="353" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0VY-D9-9hc"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
+                            <constraint firstItem="Zfw-qh-2XJ" firstAttribute="leading" secondItem="qMb-Te-RzZ" secondAttribute="leading" id="EiO-RL-Lv5"/>
+                            <constraint firstItem="Zfw-qh-2XJ" firstAttribute="top" secondItem="0VY-D9-9hc" secondAttribute="top" id="H5t-6y-8Sh"/>
                             <constraint firstItem="qMb-Te-RzZ" firstAttribute="leading" secondItem="0VY-D9-9hc" secondAttribute="leading" constant="20" id="IFQ-sh-1l7"/>
                             <constraint firstItem="0VY-D9-9hc" firstAttribute="trailing" secondItem="qMb-Te-RzZ" secondAttribute="trailing" constant="20" id="Wzp-OR-qhG"/>
+                            <constraint firstItem="Zfw-qh-2XJ" firstAttribute="trailing" secondItem="qMb-Te-RzZ" secondAttribute="trailing" id="dzG-Ll-rjc"/>
                             <constraint firstItem="0VY-D9-9hc" firstAttribute="bottom" secondItem="qMb-Te-RzZ" secondAttribute="bottom" constant="20" id="kIB-VT-E8o"/>
-                            <constraint firstItem="qMb-Te-RzZ" firstAttribute="top" secondItem="0VY-D9-9hc" secondAttribute="top" constant="20" id="yEp-mE-0tZ"/>
+                            <constraint firstItem="qMb-Te-RzZ" firstAttribute="top" secondItem="Zfw-qh-2XJ" secondAttribute="bottom" constant="33" id="vch-3y-uFE"/>
+                            <constraint firstItem="qMb-Te-RzZ" firstAttribute="top" secondItem="0VY-D9-9hc" secondAttribute="top" constant="101" id="yEp-mE-0tZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="All Products" id="cYw-Zk-geO"/>
                     <connections>
+                        <outlet property="overallPrice" destination="Zfw-qh-2XJ" id="WJO-7q-ieO"/>
                         <outlet property="theView" destination="qMb-Te-RzZ" id="B9G-Pi-KQj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8b-wN-rKl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="654"/>
+            <point key="canvasLocation" x="1052.6717557251909" y="653.52112676056345"/>
         </scene>
         <!--Main Screen-->
         <scene sceneID="rg5-Qm-SFQ">
@@ -263,7 +269,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucR-5r-Rge">
                                 <rect key="frame" x="50" y="739" width="293" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add Product"/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="oWq-wI-aZu" eventType="touchUpInside" id="EyB-fW-Hw9"/>
                                 </connections>
